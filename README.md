@@ -12,6 +12,8 @@ Gabriel Volpe uses tagless final too in his book, but sometimes he defines some 
 
 I explain in more or less detail this approach with a lot of graphs in the following sections. However, I am concerned about the business model implementation is probably not the best-fitted implementation (I don't have much experience in DDD) but I consider it fits well with our purpose and clarify in a good way.
 
+**Friendly Reminder (10/04/2023)**: At the moment I have no clear how I could implement a better chance to handler error / message from server to out.
+
 ## Technical stack
 
 In this repo, I try to develop a http4s server creating algebras using the tagless final encoding and the following stack:
@@ -33,6 +35,61 @@ The following command deploys a **PostgresSQL** with our business tables already
 ```bash
 docker compose -f docker/docker-compose.yml up -d
 ```
+
+You can connect to this Postgres instance using the following configuration:
+
+* **host**: `localhost` (default)
+* **port**: `5432` (default)
+* **database**: `stockingapp`
+* **user**: `admin`
+* **pass**: `1234`
+
+### Deploy server
+
+The following command deploys the stocking app api-server. It will be listening in `localhost:8080`.
+
+```bash
+sbt run
+```
+
+### Playing with it
+
+You can use the following sentences in order to interact with the stocking app api-server.
+
+**List all items**
+```bash
+curl -i http://localhost:8080/items
+```
+
+**Create item**
+```bash
+curl -d '{"name":"manzana", "description":"red apple", "price":1.42}' -H "Content-Type: application/json" -X POST http://localhost:8080/items/create
+```
+
+**Find item by id**
+```bash
+curl -i http://localhost:8080/items/findById?id=<item_id>
+```
+
+**Find item by name**
+```bash
+curl -i http://localhost:8080/items/findByName?name=<item_name> 
+```
+
+**Edit item**
+
+At this moment, it is possible just to edit the price.
+
+```bash
+curl -d '{"price":1.67}' -H "Content-Type: application/json" -X POST http://localhost:8080/items/edit?id=<item_id> 
+```
+
+**Delete item**
+
+```bash
+curl -X PUT http://localhost:8080/items/delete?id=<item_id>  
+```
+
 ## Code Architecture
 
 For this project, I have tried to follow few examples made by community and create a 'canonical' way of functional implementation. The 'way' consists in:
