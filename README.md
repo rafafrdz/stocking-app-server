@@ -33,6 +33,21 @@ The following command deploys a **PostgresSQL** with our business tables already
 ```bash
 docker compose -f docker/docker-compose.yml up -d
 ```
+## Code Architecture
+
+For this project, I have tried to follow few examples made by community and create a 'canonical' way of functional implementation. The 'way' consists in:
+
+* **Modularize** the different steps or layers of the app-server: httsp(s), correctness construction of business model, requesting to db instances to get data, casting data to data access object (a.k.a DAO), and so on.
+* **Separate** the syntaxes' or expressions' every layer with respect their semantic or implementation.
+* **Relate** each layer with next one using their implementations.
+
+### Server Semantic Architecture
+
+![server-pipeline](doc/images/server-pipeline.svg)
+
+### Server Code Implementation Architecture
+
+![server-code-pipeline](doc/images/server-code-pipeline.svg)
 
 ## References
 
