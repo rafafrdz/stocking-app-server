@@ -11,10 +11,15 @@ import io.github.rafafrdz.stockingapp.rules.ItemR
 
 trait Items[F[_]] {
   def findAll: F[List[Item]]
+
   def findById(id: String): F[Item]
+
   def findBy(name: String): F[NonEmptyList[Item]]
+
   def addItem(name: String, description: String, price: Double): F[ApiCodeId]
+
   def editItem(id: String, price: Double): F[ApiCodeId]
+
   def deleteItem(id: String): F[ApiCodeId]
 
 }

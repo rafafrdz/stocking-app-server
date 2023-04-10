@@ -43,47 +43,5 @@ object ItemR {
   def toItemDescription(name: String): ItemDescription = ItemDescription(name)
 
   def toMoney(price: Double): Money = Money(price)
-  object serializable {
-//    implicit val ItemDecoder: Decoder[Item] = deriveDecoder[Item]
-//
-//    implicit def ItemEntityDecoder[F[_] : Concurrent]: EntityDecoder[F, Item] = jsonOf
-//
-//    implicit val ItemEncoder: Encoder[Item] = deriveEncoder[Item]
-//
-//    implicit def ItemEntityEncoder[F[_]]: EntityEncoder[F, Item] = jsonEncoderOf
-//
-//    implicit val ItemIdDecoder: Decoder[ItemId] = deriveDecoder[ItemId]
-//
-//    implicit def ItemIdEntityDecoder[F[_] : Concurrent]: EntityDecoder[F, ItemId] = jsonOf
-//
-//    implicit val ItemIdEncoder: Encoder[ItemId] = deriveEncoder[ItemId]
-//
-//    implicit def ItemIdEntityEncoder[F[_]]: EntityEncoder[F, ItemId] = jsonEncoderOf
-//
-//    implicit val ItemNameDecoder: Decoder[ItemName] = deriveDecoder[ItemName]
-//
-//    implicit def ItemNameEntityDecoder[F[_] : Concurrent]: EntityDecoder[F, ItemName] = jsonOf
-//
-//    implicit val ItemNameEncoder: Encoder[ItemName] = deriveEncoder[ItemName]
-//
-//    implicit def ItemNameEntityEncoder[F[_]]: EntityEncoder[F, ItemName] = jsonEncoderOf
-//
-//    implicit val ItemDescriptionDecoder: Decoder[ItemDescription] = deriveDecoder[ItemDescription]
-//
-//    implicit def ItemDescriptionEntityDecoder[F[_] : Concurrent]: EntityDecoder[F, ItemDescription] = jsonOf
-//
-//    implicit val ItemDescriptionEncoder: Encoder[ItemDescription] = deriveEncoder[ItemDescription]
-//
-//    implicit def ItemDescriptionEntityEncoder[F[_]]: EntityEncoder[F, ItemDescription] = jsonEncoderOf
-//
-//    implicit val MoneyDecoder: Decoder[Money] = deriveDecoder[Money]
-//
-//    implicit def MoneyEntityDecoder[F[_] : Concurrent]: EntityDecoder[F, Money] = jsonOf
-//
-//    implicit val MoneyEncoder: Encoder[Money] = deriveEncoder[Money]
-//
-//    implicit def MoneyEntityEncoder[F[_]]: EntityEncoder[F, Money] = jsonEncoderOf
-//
-  }
 
 }
